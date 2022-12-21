@@ -11,4 +11,4 @@ services:
     volumes:
       - ./app:/app
     command: >
-      sh -c "python manage.py runserver 9000"
+      sh -c "python manage.py runserver 0.0.0.0:9000"
