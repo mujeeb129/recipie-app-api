@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write('Waiting for db to connect...')
         db_up = False
-        while db_up == False:
+        while not db_up:
             try:
                 self.check(databases=['default'])
                 db_up = True
