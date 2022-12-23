@@ -28,7 +28,6 @@ class PublicTests(TestCase):
         payload = {
             'email': 'test1@example.com',
             'password': 'test@123',
-            'confirm_password': 'test@123',
             'name': 'Test User'
         }
         res = self.client.post(CREATE_USER_URL, payload)
@@ -45,14 +44,9 @@ class PublicTests(TestCase):
         payload = {
             'email': 'test1@example.com',
             'password': 'test@123',
-            'confirm_password': 'test@123',
             'name': 'Test User'
         }
-        create_user(
-            email=payload['email'],
-            password=payload['password'],
-            name=payload['name']
-        )
+        create_user(**payload)
 
         res = self.client.post(CREATE_USER_URL, payload)
 
@@ -62,8 +56,7 @@ class PublicTests(TestCase):
         """Test if the given password is too short"""
         payload = {
             'email': 'test1@example.com',
-            'password': 'test@123',
-            'confirm_password': 'test@123',
+            'password': 'test',
             'name': 'Test User'
         }
 
