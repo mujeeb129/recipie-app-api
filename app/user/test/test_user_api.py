@@ -2,7 +2,6 @@
 Test for the user api
 """
 from django.test import TestCase
-from django.test import Client
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
@@ -76,4 +75,3 @@ class PublicTests(TestCase):
         ).exists()
 
         self.assertFalse(user_exists)
-
